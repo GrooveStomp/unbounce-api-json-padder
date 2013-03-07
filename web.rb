@@ -1,5 +1,6 @@
 require 'sinatra'
 
-get '/' do
-  "Hello world"
+get '/jsonp/*' do
+  str = request.url.split('/jsonp/').last
+  str
 end
