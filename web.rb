@@ -11,7 +11,7 @@ get '/page-stats-jsonp/*' do
   page_stats = ub.page(page_id).tests['current'].to_s
 
   if params['jsonp']
-    "#{params['jsonp']}(#{page_stats})"
+    "#{params['jsonp']}(#{page_stats});"
   else
     page_stats
   end
