@@ -1,5 +1,4 @@
 require 'sinatra'
-require 'debugger'
 require 'unbounce_client'
 
 ub = UnbounceClient.new('dfb87f5470eb3e187cac97fbdded16bf')
