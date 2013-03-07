@@ -1,11 +1,16 @@
 require 'sinatra'
-require 'unbounce'
+require 'debugger'
+require 'unbounce_client'
 
-unbounce = Unbounce.new('dfb87f5470eb3e187cac97fbdded16bf')
+ub = UnbounceClient.new('dfb87f5470eb3e187cac97fbdded16bf')
 
-get '/jsonp/*' do
-  str = request.url.split('/jsonp/').last
-  str
+get '/page-stats-jsonp/*' do
+  page_id = request.url.split('/page-stats-jsonp/').last
+  page_stats = ub.page(page_id).tests['current'].to_s
 
-  puts unbounce.get(request)
+  if params['jsonp']
+    "#{params['jsonp']}(#{page_stats})"
+  else
+    page_stats
+  end
 end
