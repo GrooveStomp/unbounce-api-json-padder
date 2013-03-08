@@ -4,6 +4,10 @@ require 'json'
 
 ub = UnbounceClient.new('3e17e6bbe6bec8854b189de1a629e66c')
 
+get '/' do
+  "Success"
+end
+
 # This expects a valid Unbounce Page UUID.
 #
 get '/page-stats-jsonp/*' do
